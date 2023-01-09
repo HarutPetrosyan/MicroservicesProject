@@ -1,6 +1,7 @@
 ﻿using Basket.API.Entities;
+using System.Threading.Tasks;
 
-namespace Basket.API.Repositories.Interface
+namespace Basket.API.Repositories
 {
     public interface IBasketRepository
     {
