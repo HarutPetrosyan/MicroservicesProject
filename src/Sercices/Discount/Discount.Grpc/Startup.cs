@@ -1,5 +1,6 @@
 ﻿using Discount.API.Repositories;
 using Discount.API.Repositories.Interfacies;
+using Discount.Grpc.Services;
 
 namespace Discount.Grpc
 {
@@ -16,7 +17,9 @@ namespace Discount.Grpc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IDiscountRepository, DiscountRepository>();
+            services.AddAutoMapper(typeof(Startup));
             services.AddGrpc();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,7 +33,7 @@ namespace Discount.Grpc
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapGrpcService<GreeterService>();
+                endpoints.MapGrpcService<DiscountService>();
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Communication with Grpc endpoints must be made thrw");
