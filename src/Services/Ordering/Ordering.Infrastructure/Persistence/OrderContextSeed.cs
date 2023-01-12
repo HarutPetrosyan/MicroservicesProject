@@ -32,6 +32,7 @@ namespace Ordering.Infrastructure.Persistence
                             , AddressLine = "Bahcelievler"
                             , Country = "Turkey"
                             , TotalPrice = 350
+                            
                 }
             };
         }
